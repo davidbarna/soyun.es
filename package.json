@@ -1,0 +1,18 @@
+{
+  "name": "soyun.es",
+  "version": "0.0.0",
+  "description": "Under construction site.",
+  "main": " ",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidbarna/soyun.es.git"
+  },
+  "author": "davidbarna@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidbarna/soyun.es/issues"
+  },
+  "homepage": "https://github.com/davidbarna/soyun.es"
+}
