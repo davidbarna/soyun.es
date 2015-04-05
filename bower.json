@@ -1,0 +1,21 @@
+{
+  "name": "soyun.es",
+  "version": "1.0.0",
+  "authors": [
+    "David Almeida <david.almeida@soyun.es>"
+  ],
+  "description": "Soyun.es website",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "three.js": "*"
+  }
+}
