@@ -4,6 +4,7 @@
   "description": "Soyun Website",
   "main": " ",
   "scripts": {
+    "install": "bower install",
     "test": " "
   },
   "repository": {
@@ -27,6 +28,7 @@
     "gulp-jade": "^0.7.0",
     "gulp-sourcemaps": "^1.1.4",
     "gulp-uglify": "^1.0.1",
-    "tiny-lr": "^0.1.1"
+    "tiny-lr": "^0.1.1",
+    "source-map": "0.5.3"
   }
 }

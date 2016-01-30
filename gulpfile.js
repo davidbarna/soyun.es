@@ -10,6 +10,7 @@ var jade = require('gulp-jade');
 var paths = {
   scripts: ['src/js/**/*.coffee'],
   images: ['src/**/*.png', 'src/**/*.ico'],
+  vendor: 'bower_components/**/*.js',
   templates: 'src/**/*.jade'
 };
 
@@ -19,12 +20,25 @@ gulp.task('clean', function(cb) {
 
 gulp.task('scripts', [], function() {
   return gulp.src(paths.scripts)
-    .pipe(sourcemaps.init())
-      .pipe(coffee())
-      //.pipe(uglify())
-      .pipe(concat('all.min.js'))
+    .pipe(coffee())
+    .pipe(uglify())
+    .pipe(concat('all.min.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dst/js'));
+});
+
+gulp.task('scripts_dev', [], function() {
+  return gulp.src(paths.scripts)
+    .pipe(sourcemaps.init())
+    .pipe(coffee())
+    .pipe(concat('all.min.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dst/js'));
+});
+
+gulp.task('vendor', [], function() {
+  return gulp.src( paths.vendor )
+    .pipe(gulp.dest('dst/js/'));
 });
 
 
@@ -46,12 +60,19 @@ gulp.task('templates', [], function() {
 });
 
 // execute server
-gulp.task('express', function() {
+gulp.task('express_dev', function() {
   var express = require('express');
   var app = express();
   app.use(require('connect-livereload')({port: 4002}));
   app.use(express.static(__dirname + '/dst'));
   app.listen(4000);
+});
+
+gulp.task('express', function() {
+  var express = require('express');
+  var app = express();
+  app.use(express.static(__dirname + '/dst'));
+  app.listen(8080);
 });
 
 // Live reload
@@ -69,7 +90,7 @@ function notifyLiveReload(event) {
       }
     });
   }, 100)
-  
+
 }
 
 // Rerun the task when a file changes
@@ -80,7 +101,8 @@ gulp.task('watch', function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'images', 'templates']);
+gulp.task('default', ['scripts', 'vendor', 'images', 'templates']);
 
-gulp.task('dev', ['express', 'livereload', 'default', 'watch']);
+gulp.task('dev', ['express_dev', 'livereload', 'default', 'scripts_dev', 'watch']);
 
+gulp.task('serve', ['express', 'default']);

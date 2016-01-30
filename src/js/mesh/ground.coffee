@@ -7,7 +7,7 @@ class GroundMesh
       shininess: 150
       specular: 0x333333
     }
-    @geometry = new THREE.PlaneGeometry( @size, @size )
+    @geometry = new THREE.PlaneBufferGeometry( @size, @size )
     @mesh = new THREE.Mesh( @geometry, @material )
     @mesh.rotation.x = -0.5 * Math.PI
     @mesh.position.y = -0.4
