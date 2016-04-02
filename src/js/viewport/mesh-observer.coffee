@@ -1,6 +1,6 @@
 class MeshObserverViewport extends ns.viewport.Abstract
 
-  constructor: ( @fov = 30, @distance = 700 ) ->
+  constructor: ( @fov = 30, @distance = 1000 ) ->
     super( @fov, @distance )
     @_width = 1
     @_height = 1
