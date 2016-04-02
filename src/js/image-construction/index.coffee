@@ -8,23 +8,23 @@ class ImageUnderConstruction
     @renderer.shadowMapEnabled = true
 
     @viewports.push( new ns.viewport.MeshObserver() )
-    @viewports.push( new ns.viewport.MeshPerspective() )
-    @viewports.push( new ns.viewport.CubeObserver() )
+    # @viewports.push( new ns.viewport.MeshPerspective() )
+    # @viewports.push( new ns.viewport.CubeObserver() )
 
     @lighting = new ns.ImageUnderConstructionLighting( @scene.scene )
-    @lighting.addHelpers()
+    #@lighting.addHelpers()
 
     @scene.onLoad( =>
       @viewports[0].setTargetMesh( @scene.getMainMesh() )
 
       cubeAnimation = =>
         anim = @scene.getCubeAnimator()
-        @viewports[1].lookAt( anim.xTarget, anim.yTarget, anim.zTarget )
-        @viewports[1].setTargetMesh( anim.mesh )
-        @viewports[2].lookAt( anim.xTarget, anim.yTarget, anim.zTarget )
-        @viewports[2].setTargetMesh( anim.mesh )
+        # @viewports[1].lookAt( anim.xTarget, anim.yTarget, anim.zTarget )
+        # @viewports[1].setTargetMesh( anim.mesh )
+        # @viewports[2].lookAt( anim.xTarget, anim.yTarget, anim.zTarget )
+        # @viewports[2].setTargetMesh( anim.mesh )
 
-      setInterval cubeAnimation, 5000
+      setInterval cubeAnimation, 3000
       cubeAnimation()
 
       @render()

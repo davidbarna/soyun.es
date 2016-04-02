@@ -2,7 +2,7 @@ class ImageConstruction
 
   constructor: ( @imgUrl ) ->
     @_onLoadCallbacks = []
-    @fog = new THREE.Fog( 0xffffff, 400, 1500 )
+    @fog = new THREE.Fog( 0xefefef, 1000, 1500 )
     @scene = new THREE.Scene()
     @scene.fog = @fog
 
@@ -36,7 +36,7 @@ class ImageConstruction
 
   addRandomCubesMesh: ( materials ) ->
     @randomMesh = new ns.mesh.RandomCubes()
-    @randomMesh.addRandomPixels( materials, 5000, 300, 300, 300 )
+    @randomMesh.addRandomPixels( materials, 2000, 300, 300, 300 )
     @randomMesh.mesh.position.y = 1.5
     @pixelsMesh.mesh.castShadow = true
     @scene.add( @randomMesh.getMesh() )
@@ -53,6 +53,7 @@ class ImageConstruction
     return @pixelsMesh.mesh
 
   getCubeAnimator: ->
+    return if @animators.length is 0
     idx = Math.floor( Math.random() * @animators.length )
     animator = @animators[idx]
     @animators.splice( idx, 1 )

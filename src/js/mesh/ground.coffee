@@ -2,15 +2,15 @@ class GroundMesh
 
   constructor: ( @size = 10000 ) ->
     @material = new THREE.MeshPhongMaterial {
-      color: 0xaaaaaa
+      color: 0xdddddd
       ambient: 0xaaaaaa
-      shininess: 150
+      shininess: 300
       specular: 0x333333
     }
     @geometry = new THREE.PlaneBufferGeometry( @size, @size )
     @mesh = new THREE.Mesh( @geometry, @material )
     @mesh.rotation.x = -0.5 * Math.PI
-    @mesh.position.y = -0.4
+    @mesh.position.y = -10
     @mesh.receiveShadow = true
 
 window.ns ?= {}

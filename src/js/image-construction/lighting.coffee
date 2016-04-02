@@ -17,8 +17,8 @@ class ImageUnderConstructionLighting
     light2Helper = new THREE.PointLightHelper( @light2, 5 )
     @scene.add( light1Helper )
     @scene.add( light2Helper )
-    # @light1.shadowCameraVisible = true
-    # @light2.shadowCameraVisible = true
+    @light1.shadowCameraVisible = false
+    @light2.shadowCameraVisible = false
 
 
 window.ns ?= {}

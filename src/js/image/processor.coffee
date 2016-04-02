@@ -1,5 +1,3 @@
-
-
 class ImageProcessor
 
   constructor: ( @image ) ->
@@ -49,7 +47,9 @@ class ImageProcessor
     group2 = []
     while number > 0
       idx = Math.round( Math.random() * pixels.length )
-      group2.push( pixels.splice( idx, 1)[0] )
+      pixel = pixels.splice( idx, 1)[0]
+      group2.push( pixel ) if !!pixel
+
       number--
 
     return [ pixels, group2 ]

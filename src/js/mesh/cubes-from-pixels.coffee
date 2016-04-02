@@ -46,7 +46,7 @@ class PixelCubesMesh
 
   centerGeometry: ->
     matrix = new THREE.Matrix4()
-    matrix.makeTranslation( -@width/2, -@height/2, -@depth/2 )
+    matrix.makeTranslation( -(@width/2), -@height/2, -@depth/2 )
     @geometry.applyMatrix( matrix )
 
   getMesh: ->
